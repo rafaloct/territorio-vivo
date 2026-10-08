@@ -1,0 +1,21 @@
+name: safety-ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python dependency for encrypted backups
+        run: python3 -m pip install -r requirements-backup.txt
+      - name: Tracked-file safety check
+        run: python3 tools/repo_guard.py
+      - name: Unit tests synthetic only
+        run: python3 -m unittest discover -s tests -v
