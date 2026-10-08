@@ -1,0 +1,37 @@
+name: Tarefa para agente
+description: Escopo e testes completos para desenvolvimento seguro
+title: "[Agent] "
+labels: ["agent:ready"]
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objetivo unico
+      description: O que sera entregue sem afetar dados reais
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Caminhos permitidos e fora de escopo
+    validations:
+      required: true
+  - type: textarea
+    id: tests
+    attributes:
+      label: Testes e gates G1/G2/G3
+    validations:
+      required: true
+  - type: dropdown
+    id: human_gate
+    attributes:
+      label: HUMAN_GATE necessario nesta tarefa?
+      options: ["NO", "YES"]
+    validations:
+      required: true
+  - type: textarea
+    id: fallback
+    attributes:
+      label: Fallback fisico e rollback
+    validations:
+      required: true

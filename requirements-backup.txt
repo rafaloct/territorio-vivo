@@ -1,0 +1,3 @@
+# Dependency used by offline encryption and integrity test helper only.
+# Flutter production runtime will have its own audited encryption implementation.
+cryptography>=42,<47
